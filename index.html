@@ -482,32 +482,38 @@
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
-							<form action="/" method="post" class="contact_form" id="contact_form">
-								<div class="returnmessage"
-									data-success="Your message has been received, We will contact you soon."></div>
-								<div class="empty_notice"><span>Please Fill Required Fields</span></div>
+							<div class="alert alert-success" id="alert-success" role="alert">
+								
+							</div>
+							<form id="submit-form" action="">
 								<div class="first">
 									<ul>
 										<li>
-											<input id="name" type="text" placeholder="Name">
+											<input id="name" type="text" placeholder="Name" name="name" onkeyup="validateName()">
+											<span id="name-error" class="form-error-msg"></span>
 										</li>
 										<li>
-											<input id="email" type="text" placeholder="Email">
+											<input id="email" type="text" placeholder="Email" name="email" onkeyup="validateEmail()">
+											<span id="email-error" class="form-error-msg"></span>
+										</li>
+										<li>
+											<input id="tel" type="text" placeholder="Mobile no" name="tel" onkeyup="validatePhone()">
+											<span id="phone-error" class="form-error-msg"></span>
 										</li>
 									</ul>
 								</div>
 								<div class="last">
-									<textarea id="message" placeholder="Message"></textarea>
+									<textarea id="message" placeholder="Message" name="message" onkeyup="validateMessage()"></textarea>
+									<span id="message-error" class="form-error-msg"></span>
 								</div>
 								<div class="grax_tm_button">
-									<a id="send_message" href="#">Send Message</a>
+									<button type="submit" id="send_message" onclick="return validateForm()" class="w-100">Send Message</button>
+									<span id="empty_notice" class="form-error-msg"></span>
 								</div>
-
-								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
-
 							</form>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -562,9 +568,28 @@
 
 	<!-- SCRIPTS -->
 	<script src="js/jquery.js"></script>
+	<script src="js/validation.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/init.js"></script>
 	<script src="https://kit.fontawesome.com/0070eff13e.js" crossorigin="anonymous"></script>
+	<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxvCJOcPo8nLeYKp_bEhDBFGywSeSQtpnZlicwUEFeS-ibbqAGy/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    // alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+                }
+            })
+        })
+    </script>
 	<!-- /SCRIPTS -->
 
 </body>

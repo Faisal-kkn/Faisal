@@ -739,13 +739,34 @@ h6 { font-size: 16px; }
 	height: auto;
 	clear: both;
 	float: left;
+	margin-top: 20px;
 }
+.grax_tm_button button{
+	text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: #e2a925;
+	border: 2px solid #e2a925;
+    padding: 10px 40px;
+    border-radius: 5px;
+	
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
+}
+.grax_tm_button button:hover{
+	background-color: transparent !important;
+	color: #000;
+}
+
 .grax_tm_button a{
 	text-decoration: none;
     color: #fff;
     display: inline-block;
-    background-color: #e54b4b;
-	border: 2px solid #e54b4b;
+    background-color: #e2a925;
+	border: 2px solid #e2a925;
     padding: 10px 40px;
     border-radius: 5px;
 	
@@ -815,10 +836,13 @@ h6 { font-size: 16px; }
 }
 .progress_inner .background .bar_in{
 	height:100%;
-	background:#e54b4b;
+	background:#e2a925;
 	width:0px;
 	overflow:hidden;
 	border-radius: 5px;
+}
+.w-100{
+	width: 100%;
 }
 .progress_inner .background .bar{
 	width:0px;
@@ -1447,6 +1471,10 @@ body.modal{
 /*---------------------------------------------------*/
 /*	09) GRAX CONTACT
 /*---------------------------------------------------*/
+.form-error-msg{
+	font-size: 13px;
+	color: red;
+}
 
 .grax_tm_contact{
 	width: 100%;
@@ -1564,7 +1592,7 @@ body.modal{
 }
 .grax_tm_contact .fields ul li{
 	width: 100%;
-	margin: 0px 0px 30px 0px;
+	margin: 0px 0px 20px 0px;
 	float: left;
 }
 .grax_tm_contact .fields ul li input{
@@ -1582,7 +1610,7 @@ body.modal{
 	border: 1px solid rgba(0,0,0,.2);
 	height: 120px;
 	resize: none;
-	margin-bottom: 20px;
+	margin-bottom: 0;
 	background-color: #fff;
 	border-radius: 5px;
 }
@@ -1608,7 +1636,13 @@ body.modal{
 	text-align: left;
 	font-weight: 500;
 }
+
 .grax_tm_contact .grax_tm_button a{
+	display: block;
+	text-align: center;
+}
+
+.grax_tm_contact .grax_tm_button button{
 	display: block;
 	text-align: center;
 }
@@ -2306,6 +2340,20 @@ body.dark .grax_tm_settings .cursor li .svg,
     animation: myAnimPrice 2s infinite .6s
 }
 
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+	display: none;
+}
 /*---------------------------------------------------*/
 /*	14) GRAX MEDIA QUERIES (FOR SMALL DEVIVES)
 /*---------------------------------------------------*/
