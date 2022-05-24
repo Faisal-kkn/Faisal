@@ -7,71 +7,63 @@ let msgSuccess = document.getElementById('alert-success');
 
 function validateName(){
     let name = document.getElementById('name').value;
+    document.getElementById('name-error').style.color = 'red';
     if (name.length == 0) {
-        document.getElementById('name-error').style.color = 'red';
         nameError.innerHTML = 'Name is required';
         return false;
     }
 
     if (name.match(' '+' ')) {
-        document.getElementById('name-error').style.color = 'red';
         nameError.innerHTML = 'space is two';
         return false;
     }
 
     if (!name.match(/^[a-zA-Z]+ [a-zA-Z]+$/)) {
-        document.getElementById('name-error').style.color = 'red';
         nameError.innerHTML = 'Write full name';
         return false;
     }
 
-    document.getElementById('name-error').style.color = 'green';
-    nameError.innerHTML = 'Valid Name';    
+    nameError.innerHTML = '';    
     return true;
 }
 
 function validateEmail(){
     let email = document.getElementById('email').value;
+    document.getElementById('email-error').style.color = 'red';
     if (email.length == 0) {
-        document.getElementById('email-error').style.color = 'red';
         emailError.innerHTML = 'Email is required';
         return false;
     }
 
     if (!email.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
-        document.getElementById('email-error').style.color = 'red';
         emailError.innerHTML = 'Email invalid';
         return false;
     }
 
-    document.getElementById('email-error').style.color = 'green';
-    emailError.innerHTML = 'Valid Email';    
+    emailError.innerHTML = '';    
     return true;
 }
 
 function validatePhone() {
     let phone = document.getElementById('tel').value;
 
+    document.getElementById('phone-error').style.color = 'red';
     if (phone.length == 0) {
-        document.getElementById('phone-error').style.color = 'red';
         phoneError.innerHTML = 'Phone is required';
         return false;
     }
 
     if (phone.length !== 10) {
-        document.getElementById('phone-error').style.color = 'red';
         phoneError.innerHTML = 'Phone no should be 10 digits';
         return false;
     }
 
     if(!phone.match(/^[0-9]{10}$/)){
-        document.getElementById('phone-error').style.color = 'red';
         phoneError.innerHTML = 'Only digits please';
         return false;
     }
 
-    document.getElementById('phone-error').style.color = 'green';
-    phoneError.innerHTML = 'Valid Phone';
+    phoneError.innerHTML = '';
     return true;
 }
 
@@ -79,15 +71,14 @@ function validateMessage(){
     let message = document.getElementById('message').value;
     let required = 20;
     let left = required - message.length;
+    document.getElementById('message-error').style.color = 'red';
 
     if (left > 0) {
-        document.getElementById('message-error').style.color = 'red';
         messageError.innerHTML = left + 'More charector required';
         return false;
     }
 
-    document.getElementById('message-error').style.color = 'green';
-    messageError.innerHTML = 'Valid Phone';
+    messageError.innerHTML = '';
     return true;
 }
 
@@ -98,9 +89,8 @@ function validateForm() {
         setTimeout(function () { submitError.style.display = 'none'; }, 3000);
         return false;
     } else {
+        msgSuccess.style.display = 'block';
         msgSuccess.innerHTML = 'This is a success alert—check it out!';
-        // msgSuccess.style.display = 'none';
-        setTimeout(function () { msgSuccess.style.display = 'block'; }, 3000);
     }
 
     
