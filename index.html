@@ -487,21 +487,21 @@
 								<div class="first">
 									<ul>
 										<li>
-											<input id="name" type="text" placeholder="Name" name="name" onkeyup="validateName()">
+											<input id="name" type="text" placeholder="Name*" name="name" onkeyup="validateName()" required>
 											<span id="name-error" class="form-error-msg"></span>
 										</li>
 										<li>
-											<input id="email" type="text" placeholder="Email" name="email" onkeyup="validateEmail()">
+											<input id="email" type="text" placeholder="Email*" name="email" onkeyup="validateEmail()" required>
 											<span id="email-error" class="form-error-msg"></span>
 										</li>
 										<li>
-											<input id="tel" type="text" placeholder="Mobile no" name="tel" onkeyup="validatePhone()">
+											<input id="tel" type="text" placeholder="Mobile no*" name="tel" onkeyup="validatePhone()" required>
 											<span id="phone-error" class="form-error-msg"></span>
 										</li>
 									</ul>
 								</div>
 								<div class="last">
-									<textarea id="message" placeholder="Message" name="message" onkeyup="validateMessage()"></textarea>
+									<textarea id="message" placeholder="Message*" name="message" onkeyup="validateMessage()" required></textarea>
 									<span id="message-error" class="form-error-msg"></span>
 								</div>
 								<div class="grax_tm_button">
@@ -578,6 +578,7 @@
                 data:$("#submit-form").serialize(),
                 method:"post",
                 success:function (response){
+                    alert("Message Successfully sent")
                     window.location.reload()
                 },
                 error:function (err){

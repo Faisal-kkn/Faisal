@@ -35,6 +35,11 @@ function validateEmail(){
         return false;
     }
 
+    if (email == 'faisalkkn9946@gmail.com') {
+        emailError.innerHTML = 'you can\'t use this email';
+        return false;
+    }
+
     if (!email.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
         emailError.innerHTML = 'Email invalid';
         return false;
@@ -83,7 +88,7 @@ function validateMessage(){
 }
 
 function validateForm() {
-    if (!validateName() || !validateEmail() || !validatePhone() || !validateMessage()) {
+    if (!validateName() & !validateEmail() & !validatePhone() & !validateMessage()) {
         submitError.style.display = 'block';
         submitError.innerHTML = 'Please Fill Required Fields';
         setTimeout(function () { submitError.style.display = 'none'; }, 3000);
